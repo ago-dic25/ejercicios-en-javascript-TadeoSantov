@@ -9,43 +9,90 @@ var alumnos = [
     "Diego Alonso",
     "Naomi Michelle",
     "Eder Abisai",
-    "Regina", //Dariela
-    "Carlos", //Manuel
-    "Carlos" //Alejandro
-,];
+    "Regina",
+    "Carlos",
+    "Carlos"
+];
 
-//elimina el ultimo elemento del arreglo
+console.log("Arreglo original:", alumnos);
+
+console.log("\n--- MANIPULACIÓN ---");
+
+alumnos.push("Juan");
+console.log("Después de push('Juan'):", alumnos);
+
 alumnos.pop();
+console.log("Después de pop():", alumnos);
 
-//Agregar 
-alumnos.push("Edgar Aurelio");
+alumnos.unshift("María");
+console.log("Después de unshift('María'):", alumnos);
 
-//elimina al inicio
 alumnos.shift();
+console.log("Después de shift():", alumnos);
 
-//Agrega al inicio
-alumnos.unshift("Axel Gabriel");
+console.log("\n--- CONSULTA ---");
 
-//Cambia valor de elemento
-alumnos[4]=  "Carlos Manuel";
+var indice = alumnos.indexOf("Regina");
+console.log("indexOf('Regina'):", indice);
 
+var existe = alumnos.includes("Diego Leonardo");
+console.log("includes('Diego Leonardo'):", existe);
 
-console.log(alumnos.indexOf("Eder Abisai"));
-console.log(alumnos.includes("Alejandro"));
+var encontrado = alumnos.find(nombre => nombre.startsWith("E"));
+console.log("find(nombre que empiece con E):", encontrado);
 
-console.log(alumnos.find(nombre => nombre == "Regina"));
-//Equivale a 
-// for(var i = 0; i <alumnos.length; i++){
-//     if(alumnos[i] == "Regina"){
-//         console.log(alumnos[i]);
-//         break;
-//     }
-// }
+var indiceEncontrado = alumnos.findIndex(nombre => nombre.startsWith("E"));
+console.log("findIndex(nombre que empiece con E):", indiceEncontrado);
 
-console.log(alumnos.findIndex(nombre => nombre=="Regina"));
-// for(var j= 0; j < alumnos.length; j++){
-//     if(alumnos[j] == "Regina"){
-//         console.log(j);
-//         break;
-//     }
-// }
+console.log("\n--- RECORRIDO ---");
+
+console.log("forEach:");
+alumnos.forEach(alumno => console.log("- " + alumno));
+
+var longitudNombres = alumnos.map(nombre => nombre.length);
+console.log("map(longitud de nombres):", longitudNombres);
+
+var nombresLargos = alumnos.filter(nombre => nombre.length > 10);
+console.log("filter(nombres con más de 10 letras):", nombresLargos);
+
+var totalLetras = alumnos.reduce((total, nombre) => total + nombre.length, 0);
+console.log("reduce(total de letras):", totalLetras);
+
+console.log("\n--- ORDEN ---");
+
+var frutas = ["manzana", "pera", "uva", "banana"];
+frutas.sort();
+console.log("frutas.sort():", frutas);
+
+frutas.reverse();
+console.log("frutas.reverse():", frutas);
+
+var numeros = [5, 2, 8, 1, 9];
+numeros.sort((a, b) => a - b);
+console.log("numeros ordenados:", numeros);
+
+var arr1 = ["a", "b", "c"];
+arr1.splice(1, 1, "x");
+console.log("splice(1,1,'x'):", arr1);
+
+var arr2 = ["rojo", "verde", "azul", "amarillo"];
+var porcion = arr2.slice(1, 3);
+console.log("slice(1,3) de colores:", porcion);
+
+console.log("\n--- OTROS ---");
+
+var arr3 = [1, 2];
+var arr4 = [3, 4];
+var union = arr3.concat(arr4);
+console.log("concat([1,2] + [3,4]):", union);
+
+var anidado = [1, [2, 3], [4, 5]];
+var aplanado = anidado.flat();
+console.log("flat() de arreglo anidado:", aplanado);
+
+var nums = [1, 2, 3, 4, 5];
+var algunoMayor = nums.some(n => n > 4);
+console.log("some(n > 4):", algunoMayor);
+
+var todosPositivos = nums.every(n => n > 0);
+console.log("every(n > 0):", todosPositivos);
